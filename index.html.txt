@@ -89,8 +89,38 @@ reviewList.appendChild(li);
 // Clear input
 document.getElementById('new-review').value = '';
 });
+<body>
+<div id="app-container">
+<h1>Budsy Demo</h1>
+
+<p>This is my Budsy note.</p>
+
+<div id="review-section">
+<input type="text" id="new-review" placeholder="Type a review...">
+<button id="submit-review">Submit</button>
+<ul id="review-list"></ul>
+</div>
+</div>
+
+<script>
+const submitButton = document.getElementById('submit-review');
+const reviewList = document.getElementById('review-list');
+
+submitButton.addEventListener('click', () => {
+const newReview = document.getElementById('new-review').value.trim();
+if (!newReview) return;
+
+const li = document.createElement('li');
+li.textContent = newReview + ' (AI reply goes here)';
+reviewList.appendChild(li);
+
+document.getElementById('new-review').value = '';
+});
+</script>
+</body>
 </script>
 
 </body>
 
 </html>
+
